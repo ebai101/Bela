@@ -158,6 +158,7 @@ uploadBuildRun(){
 		# --no-t makes sure file timestamps are not preserved, so that the Makefile will not think that targets are up to date when replacing files on the BBB
 		#  with older files from the host. This will solve 99% of the issues with Makefile thinking a target is up to date when it is not.
 		echo "using rsync..."
+		echo "rsync -ac --out-format=\"   %n\" --no-t --delete-after --exclude=$BBB_PROJECT_NAME --exclude=build $HOST_SOURCE_PATH\"/\" \"$BBB_NETWORK_TARGET_FOLDER/\""
 		rsync -ac --out-format="   %n" --no-t --delete-after --exclude=$BBB_PROJECT_NAME --exclude=build $HOST_SOURCE_PATH"/" "$BBB_NETWORK_TARGET_FOLDER/" #trailing slashes used here make sure rsync does not create another folder inside the target folder
 	fi
 
