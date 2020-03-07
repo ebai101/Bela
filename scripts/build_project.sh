@@ -18,7 +18,6 @@ usage_brief(){
 	echo
 }
 
-
 usage()
 {
 	usage_brief
@@ -176,24 +175,6 @@ uploadBuildRun(){
         echo "Building and running project..."
 	    case_run_mode
 	fi
-}
-
-# checks if the files copied to the board are only header files, prints a warning if so
-checkIfOnlyHeaders() {
-    input=$(</dev/stdin)
-    echo "$input"
-    source_exist=0
-
-    while read i; do
-        ext=$(echo "$i" | sed 's/.*\.//')
-        if [ $ext != "hpp" ] && [ $ext != "hh" ] && [ $ext != "h" ]; then
-            source_exist=1
-        fi
-    done <<< "$input"
-
-    if [ $source_exist -eq "0" ]; then
-        echo "WARNING: only header files were copied to the board - you may want to clean the project before building" # or whatever. possibly rm the associated .o file on the BBB?
-    fi
 }
 
 # run it once (or just touch the time_file)  and then (in case) start waiting for changes
