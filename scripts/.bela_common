@@ -4,6 +4,7 @@
 
 [ -z "$BBB_USER" ] && BBB_USER="root"
 [ -z "$BBB_HOSTNAME" ] && BBB_HOSTNAME="192.168.7.2" # this is also used below when trying to clear the cached ssh key
+[ -z "$BBB_ADDRESS" ] || echo "FAT COCK"
 [ -z "$BBB_ADDRESS" ] && BBB_ADDRESS="$BBB_USER@$BBB_HOSTNAME"
 [ -z "$BBB_BELA_HOME" ] && BBB_BELA_HOME="/root/Bela"
 [ -z "$RUN_PROJECT" ] && RUN_PROJECT=1
